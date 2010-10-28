@@ -12,6 +12,14 @@
   <script src="js/libs/jquery-1.4.2.min.js"></script> 
 
   <script src="../src/audio-hover.js"></script> 
+
+  <script type="text/javascript">
+	$(document).ready( function(){
+		// initialize AudioHover
+		var _ah = new AudioHover();
+		_ah.init();		// set it up
+	});
+  </script>
 </head> 
  
 <body> 
@@ -21,7 +29,7 @@
     </header> 
     
     <div id="main"> 
-
+		<a href="#" class="my foo audiohover" audio="['audio/song.ogg']"> Hover me </a>
     </div> 
     
     <footer> 
