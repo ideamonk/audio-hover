@@ -18,7 +18,7 @@ function AudioHover(){
         if (class_name == undefined)
             class_name = "audiohover";
         
-        $(".audiohover").hover(
+        $("." + class_name).hover(
             this.hover_in,
             this.hover_out
         );
