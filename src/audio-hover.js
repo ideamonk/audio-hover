@@ -53,3 +53,9 @@
         };
     }
 })();
+
+$(document).ready( function(){
+	// initialize AudioHover
+	var _ah = new AudioHover();
+	_ah.init();		// set it up
+});
