@@ -41,7 +41,10 @@
                     + '}').sources;
                 
                 for (i=0; i<sources.length; i++){
-                    new_audio.innerHTML += "<source src='"+ sources[i] +"' type='"+ audio_type(sources[i]) +"' />";
+                    var source = document.createElement("source");
+                    source.src = sources[i];
+                    source.type = audio_type(sources[i]);
+                    new_audio.appendChild(source);
                 }
                 control_cache[$(this).attr('class')] = new_audio;
             });
