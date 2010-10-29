@@ -5,37 +5,52 @@
  * Copyright 2010, Abhishek Mishra
 */
 
-function AudioHover(){
-    control_cache = {};
+(function(){
+    var AudioHover = window.AudioHover = function(){
+        control_cache = {};
     
-    this.hover_in = function(){
-        console.log($(this).attr('class'));
-    };
+        var hover_in = function(){
+            console.log("in");
+            control_cache[$(this).attr('class')].play();
+        };
     
-    this.hover_out = function(){
-        console.log("I am out");
-    };
+        var hover_out = function(){
+            control_cache[$(this).attr('class')].pause();
+            control_cache[$(this).attr('class')].position = 0;
+        };
     
-    this.init = function(class_name) {
-        this.control_cache = {};
+        var audio_type = function(filename){
+            var types = {
+                "ogg":"audio/ogg",
+                "mp3":"audio/mpeg",
+                "wav":"audio/x-wav",
+            };
+            return types[filename.substr(filename.lastIndexOf('.') + 1)];
+        };
+    
+        this.init = function(class_name) {
+            this.control_cache = {};
         
-        if (class_name == undefined)
-            class_name = "audiohover";
+            if (class_name == undefined)
+                class_name = "audiohover";
             
-        $("." + class_name).each(function(){
-            var this_class_name = $(this).attr('class');
-            var new_audio = document.createElement("audio");
-            var sources = jQuery.parseJSON( '{ "sources" :' + 
-                    this_class_name.match(/\[(.*)\]/)[0].replace(/\'/g,"\"")
-                + '}').sources;
+            $("." + class_name).each(function(){
+                var this_class_name = $(this).attr('class');
+                var new_audio = document.createElement("audio");
+                var sources = jQuery.parseJSON( '{ "sources" :' + 
+                        this_class_name.match(/\[(.*)\]/)[0].replace(/\'/g,"\"")
+                    + '}').sources;
                 
-            console.log(sources);
-            control_cache[$(this).attr('class')] = new_audio;
-        });
+                for (i=0; i<sources.length; i++){
+                    new_audio.innerHTML += "<source src='"+ sources[i] +"' type='"+ audio_type(sources[i]) +"' />";
+                }
+                control_cache[$(this).attr('class')] = new_audio;
+            });
         
-        $("." + class_name).hover(
-            this.hover_in,
-            this.hover_out
-        );
-    };
-}
+            $("." + class_name).hover(
+                hover_in,
+                hover_out
+            );
+        };
+    }
+})();
