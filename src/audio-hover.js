@@ -23,7 +23,13 @@ function AudioHover(){
             class_name = "audiohover";
             
         $("." + class_name).each(function(){
+            var this_class_name = $(this).attr('class');
             var new_audio = document.createElement("audio");
+            var sources = jQuery.parseJSON( '{ "sources" :' + 
+                    this_class_name.match(/\[(.*)\]/)[0].replace(/\'/g,"\"")
+                + '}').sources;
+                
+            console.log(sources);
             control_cache[$(this).attr('class')] = new_audio;
         });
         
