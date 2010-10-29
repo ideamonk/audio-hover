@@ -27,7 +27,7 @@
             return types[filename.substr(filename.lastIndexOf('.') + 1)];
         };
     
-        this.init = function(class_name) {
+        this.setup = function(class_name) {
             this.control_cache = {};
         
             if (class_name == undefined)
@@ -59,6 +59,6 @@
 
 $(document).ready( function(){
 	// initialize AudioHover
-	var _ah = new AudioHover();
-	_ah.init();		// set it up
+	var _audiohover = new AudioHover();
+	_audiohover.setup();    // set it up
 });
