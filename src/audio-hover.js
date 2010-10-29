@@ -10,13 +10,12 @@
         control_cache = {};
     
         var hover_in = function(){
-            console.log("in");
             control_cache[$(this).attr('class')].play();
         };
     
         var hover_out = function(){
             control_cache[$(this).attr('class')].pause();
-            control_cache[$(this).attr('class')].position = 0;
+            control_cache[$(this).attr('class')].currentTime = 0;
         };
     
         var audio_type = function(filename){
