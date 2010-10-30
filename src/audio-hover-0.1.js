@@ -10,7 +10,14 @@
         var control_cache = {};
         var play_delay = 0;
         var pause_delay = 0;
+        var stop_on_out = true;
         
+        var audio_types = {
+                "ogg":"audio/ogg",
+                "mp3":"audio/mpeg",
+                "wav":"audio/x-wav",
+        };
+            
         var hover_in = function(){
             var class_name = $(this).attr('class'); // this changes inside timeout scope
             setTimeout(
@@ -21,22 +28,19 @@
         };
     
         var hover_out = function(){
-            var class_name = $(this).attr('class'); // this changes inside timeout scope
-            setTimeout(
-                function(){
-                    control_cache[class_name].pause();
-                    control_cache[class_name].currentTime = 0;
-                }, pause_delay
-            );
+            if (stop_on_out){
+                var class_name = $(this).attr('class'); // this changes inside timeout scope
+                setTimeout(
+                    function(){
+                        control_cache[class_name].pause();
+                        control_cache[class_name].currentTime = 0;
+                    }, pause_delay
+                );
+            }
         };
     
         var audio_type = function(filename){
-            var types = {
-                "ogg":"audio/ogg",
-                "mp3":"audio/mpeg",
-                "wav":"audio/x-wav",
-            };
-            return types[filename.substr(filename.lastIndexOf('.') + 1)];
+            return audio_types[filename.substr(filename.lastIndexOf('.') + 1)];
         };
     
         this.play_after = function (delay) {
@@ -46,6 +50,10 @@
         
         this.stop_after = function (delay) {
             pause_delay = delay;
+        };
+        
+        this.play_full = function (state) {
+            stop_on_out = false;
         };
         
         this.setup = function(class_name) {

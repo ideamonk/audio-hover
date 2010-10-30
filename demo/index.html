@@ -4,14 +4,14 @@
   <meta charset="utf-8"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
  
-  <title>Audio Hover Test</title> 
+  <title>Audio Hover Demo</title> 
   <meta name="description" content=""> 
   <meta name="author" content=""> 
    <link rel="stylesheet" href="css/style.css"> 
   <script src="js/libs/modernizr-1.6.min.js"></script> 
   <script src="js/libs/jquery-1.4.2.min.js"></script> 
 
-  <script src="../src/audio-hover.js"></script>
+  <script src="../src/audio-hover-0.1.js"></script>
   <script type="text/javascript">
 	$(document).ready( function(){
 		// create a new AudioHover helper
@@ -19,8 +19,10 @@
 		// optional configuration for AudioHover
 		_audiohover.play_after(0);
 		_audiohover.stop_after(1000);
+		// _audiohover.play_full();
 		
-		_audiohover.setup();    	// apply audio hover to the document
+		// apply audio hover to the document
+		_audiohover.setup();
 	});
   </script>
 </head> 
@@ -28,11 +30,28 @@
 <body> 
  
   <div id="container"> 
-    <header> 
+    <header>
+		AudioHover
     </header> 
     
     <div id="main"> 
-		<a href="#" class="songbutton audiohover ['audio/song.ogg','audio/song.mp3','audio/song.wav']"> Hover me for a Song </a>
+		<div>
+			<a href="#" class="songbutton audiohover ['audio/song.ogg','audio/song.mp3','audio/song.wav']"> Hover me for a Song </a>
+			<a href="#" class="songbutton audiohover ['audio/deal.mp3', 'audio/deal.ogg']"> Hear me say! </a>
+		</div>
+		
+		
+		
+		<div id="howto">
+			<h2> Its as easy as a pie </h2>
+			<pre>
+				&lt;div class="myclass audiohover ['audio/song.ogg','audio/song.mp3']"&gt; Hear Me! &lt;/div&gt;
+			</pre>
+			<h3>
+				• include audio-hover.js • _audiohover.setup(); • done
+			</h3>
+		</div>
+		
     </div> 
     
     <footer> 

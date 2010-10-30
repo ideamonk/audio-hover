@@ -84,7 +84,13 @@ button {  width: auto; overflow: visible; }
     Author: 
  */
 
-
+#container{
+    width:80%;
+    margin:0px auto;
+}
+#main {
+    text-align:center;
+}
 .songbutton{
     margin:10px;
     padding:10px 20px;
@@ -92,9 +98,40 @@ button {  width: auto; overflow: visible; }
     color:#fff;
     display:inline-block;
     text-decoration:none;
-    -webkit-border-radius:10px;
+    border-radius:10px;
+    -webkit-transition:background-color 0.5s ease-in;
 }
 .songbutton:hover {
     background:#7CA51C;
     color:#fff;
+    -webkit-transition:background-color 0.5s ease-in;  
 }
+
+header{
+    font-size:3em;
+    text-align:center;
+    margin:20px 0px;
+}
+
+#howto{
+    width:400px;
+    margin:0px auto;
+}
+#howto h2{
+    background:#A55618;
+    color:white;
+    padding:5px 0px;
+    border-radius: 10px 10px 0px 0px;
+    font-weight:normal;
+}
+#howto pre{
+    background:#F4D89B;
+}
+#howto h3{
+    background:#A55618;
+    border-radius: 0px 0px 10px 10px;
+    color:white;
+    padding:10px;
+    font-weight:normal;
+}
+#howto  pre { text-align:left;}
