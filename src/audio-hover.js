@@ -7,15 +7,27 @@
 
 (function(){
     var AudioHover = window.AudioHover = function(){
-        control_cache = {};
-    
+        var control_cache = {};
+        var play_delay = 0;
+        var pause_delay = 0;
+        
         var hover_in = function(){
-            control_cache[$(this).attr('class')].play();
+            var class_name = $(this).attr('class'); // this changes inside timeout scope
+            setTimeout(
+                function(){
+                    control_cache[class_name].play();
+                }, play_delay
+            );
         };
     
         var hover_out = function(){
-            control_cache[$(this).attr('class')].pause();
-            control_cache[$(this).attr('class')].currentTime = 0;
+            var class_name = $(this).attr('class'); // this changes inside timeout scope
+            setTimeout(
+                function(){
+                    control_cache[class_name].pause();
+                    control_cache[class_name].currentTime = 0;
+                }, pause_delay
+            );
         };
     
         var audio_type = function(filename){
@@ -27,9 +39,16 @@
             return types[filename.substr(filename.lastIndexOf('.') + 1)];
         };
     
-        this.setup = function(class_name) {
-            this.control_cache = {};
+        this.play_after = function (delay) {
+            // delay for start of hover-in play
+            play_delay = delay;
+        };
         
+        this.stop_after = function (delay) {
+            pause_delay = delay;
+        };
+        
+        this.setup = function(class_name) {
             if (class_name == undefined)
                 class_name = "audiohover";
             
@@ -56,9 +75,3 @@
         };
     }
 })();
-
-$(document).ready( function(){
-	// initialize AudioHover
-	var _audiohover = new AudioHover();
-	_audiohover.setup();    // set it up
-});

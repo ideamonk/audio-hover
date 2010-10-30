@@ -85,4 +85,16 @@ button {  width: auto; overflow: visible; }
  */
 
 
-
+.songbutton{
+    margin:10px;
+    padding:10px 20px;
+    background:#4D8D13;
+    color:#fff;
+    display:inline-block;
+    text-decoration:none;
+    -webkit-border-radius:10px;
+}
+.songbutton:hover {
+    background:#7CA51C;
+    color:#fff;
+}
