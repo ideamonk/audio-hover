@@ -135,3 +135,4 @@ header{
     font-weight:normal;
 }
 #howto  pre { text-align:left;}
+footer { text-align:center; color:#888; margin-top:50px; font-size:0.8em;}

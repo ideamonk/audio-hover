@@ -83,3 +83,8 @@
         };
     }
 })();
+
+$(document).ready( function(){
+	// create a new AudioHover helper
+	var _audiohover = window._audiohover = new AudioHover();
+});
