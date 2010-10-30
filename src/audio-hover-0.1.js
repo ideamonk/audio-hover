@@ -1,5 +1,5 @@
 /*!
- * Audio Hover beta
+ * Audio Hover 0.1
  * depends @jQuery
  *
  * Copyright 2010, Abhishek Mishra

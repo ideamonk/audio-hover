@@ -1,3 +1,4 @@
+/* borrowed from html5 boilerplate project */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
@@ -99,6 +100,7 @@ button {  width: auto; overflow: visible; }
     display:inline-block;
     text-decoration:none;
     border-radius:10px;
+    -moz-border-radius:10px;
     -webkit-transition:background-color 0.5s ease-in;
 }
 .songbutton:hover {
@@ -122,6 +124,7 @@ header{
     color:white;
     padding:5px 0px;
     border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
     font-weight:normal;
 }
 #howto pre{
@@ -130,6 +133,7 @@ header{
 #howto h3{
     background:#A55618;
     border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
     color:white;
     padding:10px;
     font-weight:normal;
